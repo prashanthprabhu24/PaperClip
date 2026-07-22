@@ -37,17 +37,17 @@ Notes & Observations :
     But Anyway, This is good enough for now.
 
 12. Training Loss vs Validation Loss for last 50 Epochs
-![img.png](img.png)
+![img.png](viz/img.png)
 13. Training Accuracy vs Validation Accuracy for last 50 Epochs
-![img_1.png](img_1.png)
+![img_1.png](viz/img_1.png)
 14. Top-5 Training Accuracy vs Top-5 Validation Accuracy for last 50 Epochs
-![img_2.png](img_2.png)
+![img_2.png](viz/img_2.png)
 15. We dont have TestData as their Labels isnt available, We evaluate model on validation set, as anyway we dint hypertune our model.
 16. Most of my Time took at Downloading 150GB Train Set and Optimizing dataLoader so GPU wouldnt wait for CPU on it, as We have data augmentation technique, cpu handles those operation on each 1.2 million images while training, optimization was required.
     Then Nearly 40Hrs on Training the Model, Each epoch took 25 Min on Average.
     Total, it took 20 Days to complete replication and reproduction of many results from paper.
-17. Visualized the Kernels of Various Conv Layers, here is !st CNN Layer Kernels ![img_4.png](img_4.png)
+17. Visualized the Kernels of Various Conv Layers, here is !st CNN Layer Kernels ![img_4.png](viz/img_4.png)
 18. Visualized the Feature Map for sample Image, can be found in Ipynb output.
-19. Recreated the Nearest Neighbor of Similar Images search ![img_3.png](img_3.png)
-    ![img_5.png](img_5.png)![img_6.png](img_6.png)![img_7.png](img_7.png)![img_8.png](img_8.png)
-20. Finally Model Result Examples : ![img_9.png](img_9.png)
+19. Recreated the Nearest Neighbor of Similar Images search ![img_3.png](viz/img_3.png)
+    ![img_5.png](viz/img_5.png)![img_6.png](viz/img_6.png)![img_7.png](viz/img_7.png)![img_8.png](viz/img_8.png)
+20. Finally Model Result Examples : ![img_9.png](viz/img_9.png)
