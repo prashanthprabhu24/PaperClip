@@ -1,2 +1,2 @@
 # PaperClip
-I Implement AI Papers here
+I Implement Papers here

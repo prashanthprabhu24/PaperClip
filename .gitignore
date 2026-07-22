@@ -1,6 +1,6 @@
-/Imagenet/ILSVRC2010_images/
-/Imagenet/cifar-10/
 *.keras
 *.h5
 *.ckpt
 *.weights.h5
+/Datasets/
+/.idea
