@@ -4,3 +4,4 @@
 *.weights.h5
 /Datasets/
 /.idea
+*.csv

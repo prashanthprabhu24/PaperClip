@@ -1,5 +1,4 @@
-ImageNet Classification with Deep 
-Convolutional Neural Networks
+ImageNet Classification with Deep Convolutional Neural Networks
 By Alex Krizhevsky, Ilya Sutskever, and Geoffrey E. Hinton
 
 Year : 2012
