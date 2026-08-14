@@ -542,7 +542,254 @@ nav {
 
     background: var(--lime);
 }
+/* =========================================================
+   PROJECT BACKGROUND IMAGERY
+========================================================= */
 
+.project-one,
+.project-two {
+    isolation: isolate;
+}
+
+
+/* ---------------------------------------------------------
+   ALEXNET — IMAGENET COLLAGE
+--------------------------------------------------------- */
+
+.project-one::before {
+
+    background-image:
+        url("https://machinelearningmastery.com/wp-content/uploads/2017/08/Sample-of-Images-from-the-ImageNet-Dataset-used-in-the-ILSVRC-Challenge.png");
+
+    background-position: center;
+    background-size: cover;
+
+    filter: saturate(.9);
+}
+
+
+/* ---------------------------------------------------------
+   LENET — MNIST HANDWRITTEN DIGITS
+--------------------------------------------------------- */
+
+.project-two::before {
+
+    background-image:
+        url("https://miro.medium.com/v2/resize%3Afit%3A884/1%2A8RuSuNkV4xl3Ekv9bnbpgQ.png");
+
+    background-position: center;
+    background-size: cover;
+
+    filter: grayscale(1);
+}
+
+
+/* ---------------------------------------------------------
+   COLOR OVERLAY
+--------------------------------------------------------- */
+
+.project-one::after,
+.project-two::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+}
+
+
+/* AlexNet — blue */
+
+.project-one::after {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(49,85,255,.94),
+            rgba(49,85,255,.80)
+        );
+}
+
+
+/* LeNet — orange */
+
+.project-two::after {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,101,72,.94),
+            rgba(255,101,72,.80)
+        );
+}
+
+
+/* ---------------------------------------------------------
+   KEEP PROJECT CONTENT ABOVE EVERYTHING
+--------------------------------------------------------- */
+
+.project-one > *,
+.project-two > * {
+
+    position: relative;
+
+    z-index: 1;
+}
+
+/* =========================================================
+   TRANSFORMER + RESEARCH — VISIBLE BACKGROUNDS
+========================================================= */
+
+.project-three,
+.project-four {
+    isolation: isolate;
+}
+
+
+/* IMAGE */
+.project-one::before,
+.project-two::before,
+.project-three::before,
+.project-four::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -2;
+
+    background-repeat: no-repeat;
+
+    pointer-events: none;
+
+    opacity: .6;
+
+    transition:
+        transform .5s ease,
+        opacity .4s ease;
+}
+
+
+/* =========================================================
+   TRANSFORMER
+========================================================= */
+
+.project-three::before {
+
+    background-image:
+        url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Transformer%2C_full_architecture.png");
+
+    background-position: center;
+    background-size: 78% auto;
+
+    filter: grayscale(1) contrast(1.15);
+
+    opacity: .38;
+}
+
+
+/* Dark transparent veil — NOT solid */
+
+.project-three::after {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(15,16,22,.88) 0%,
+            rgba(15,16,22,.58) 45%,
+            rgba(15,16,22,.30) 100%
+        );
+}
+
+
+/* =========================================================
+   RESEARCH
+========================================================= */
+
+.project-four::before {
+
+    background-image:
+        url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Neural_Network.svg");
+
+    background-position: center;
+    background-size: 80% auto;
+
+    filter: grayscale(1) contrast(1.2);
+
+    opacity: .30;
+}
+
+
+/* Lime transparent veil */
+
+.project-four::after {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(173,255,47,.78) 0%,
+            rgba(173,255,47,.58) 50%,
+            rgba(173,255,47,.38) 100%
+        );
+}
+
+
+/* =========================================================
+   CONTENT ABOVE EVERYTHING
+========================================================= */
+
+.project-three > *,
+.project-four > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.project-three:hover::before,
+.project-four:hover::before {
+
+    opacity: 0.9;
+
+    transform: scale(1.05);
+}
+/* ---------------------------------------------------------
+   SUBTLE HOVER
+--------------------------------------------------------- */
+
+.project-one:hover::before,
+.project-two:hover::before {
+
+    opacity: 0.9;
+
+    transform: scale(1.05);
+}
 .project-number {
     font-size: .7rem;
     font-weight: 900;
@@ -1224,79 +1471,73 @@ footer {
 
 <section id="projects">
 
-<div class="section">
+    <div class="section">
 
-    <div class="section-header">
+        <div class="section-header">
 
-        <div class="section-index">
-            01 / Selected Work
-        </div>
-
-        <div>
-
-            <h2 class="section-title">
-                Things I've<br>
-                been building.
-            </h2>
-
-            <p class="section-subtitle">
-                Implementations, experiments and research-driven
-                projects across machine learning and artificial intelligence.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="projects">
-
-
-        <!-- PROJECT 01 -->
-
-        <article class="project project-one">
-
-            <div class="project-number">
-                01 — MACHINE LEARNING
+            <div class="section-index">
+                01 / Selected Work
             </div>
 
-            <div class="project-content">
+            <div>
 
-                <h3>
-                    PaperClip
-                </h3>
+                <h2 class="section-title">
+                    Things I've<br>
+                    been building.
+                </h2>
 
-                <p>
-                    A machine-learning project exploring intelligent
-                    information processing and practical experimentation.
+                <p class="section-subtitle">
+                    Implementations, experiments and research-driven
+                    projects across machine learning and artificial intelligence.
                 </p>
 
-                <div class="project-footer">
+            </div>
 
-                    <div class="project-tags">
+        </div>
 
-                        <span>Python</span>
-                        <span>ML</span>
-                        <span>Research</span>
 
-                    </div>
+        <div class="projects">
 
-                    <a
-                        class="project-arrow"
-                        href="https://github.com/prashanthprabhu24/PaperClip"
-                        target="_blank"
-                    >
-                        ↗
-                    </a>
+            <article class="project project-one">
 
+        <div class="project-number">
+            01 — COMPUTER VISION
+        </div>
+
+        <div class="project-content">
+
+            <h3>
+                AlexNet
+            </h3>
+
+            <p>
+                A from-scratch implementation and large-scale training
+                study of the AlexNet architecture on ImageNet.
+            </p>
+
+            <div class="project-footer">
+
+                <div class="project-tags">
+                    <span>CNN</span>
+                    <span>ImageNet</span>
+                    <span>GPU</span>
                 </div>
+
+                <a
+                    class="project-arrow"
+                    href="assets/blogs/alexnet.html"
+                    target="_blank"
+                >
+
+
+                    ↗
+                </a>
 
             </div>
 
-        </article>
+        </div>
 
-
-        <!-- PROJECT 02 -->
+    </article>
 
         <article class="project project-two">
 
@@ -1307,27 +1548,25 @@ footer {
             <div class="project-content">
 
                 <h3>
-                    AlexNet
+                    LeNet
                 </h3>
 
                 <p>
-                    An implementation and large-scale training study
-                    of the AlexNet architecture using ImageNet.
+                    A from-scratch implementation of the LeNet architecture
+                    for handwritten digit classification using MNIST.
                 </p>
 
                 <div class="project-footer">
 
                     <div class="project-tags">
-
                         <span>CNN</span>
-                        <span>ImageNet</span>
-                        <span>GPU</span>
-
+                        <span>MNIST</span>
+                        <span>Python</span>
                     </div>
 
                     <a
                         class="project-arrow"
-                        href="https://github.com/prashanthprabhu24/PaperClip/tree/main/Imagenet"
+                        href="https://github.com/prashanthprabhu24"
                         target="_blank"
                     >
                         ↗
@@ -1345,29 +1584,27 @@ footer {
         <article class="project project-three">
 
             <div class="project-number">
-                03 — NLP / AI
+                03 — NATURAL LANGUAGE PROCESSING
             </div>
 
             <div class="project-content">
 
                 <h3>
-                    NLP<br>
-                    Experiments
+                    Transformer
                 </h3>
 
                 <p>
-                    Exploring embeddings, transformers, language
-                    models and the foundations of modern NLP systems.
+                    Exploring the Transformer architecture from the ground up,
+                    with implementations of self-attention, positional encoding,
+                    and encoder-decoder components.
                 </p>
 
                 <div class="project-footer">
 
                     <div class="project-tags">
-
-                        <span>NLP</span>
+                        <span>Attention</span>
                         <span>Transformers</span>
-                        <span>LLMs</span>
-
+                        <span>NLP</span>
                     </div>
 
                     <a
@@ -1389,41 +1626,45 @@ footer {
 
         <article class="project project-four">
 
-            <div class="project-number">
-                04 — COMING NEXT
+    <div class="project-number">
+        04 — RESEARCH
+    </div>
+
+    <div class="project-content">
+
+        <h3>
+            Research<br>
+            Reproductions.
+        </h3>
+
+        <p>
+            Implementing ideas from influential machine-learning papers
+            to understand the architectures, mathematics, and experiments
+            behind modern AI.
+        </p>
+
+        <div class="project-footer">
+
+            <div class="project-tags">
+                <span>Papers</span>
+                <span>Implementation</span>
+                <span>Research</span>
             </div>
 
-            <div class="project-content">
+            <a
+                class="project-arrow"
+                href="https://github.com/prashanthprabhu24"
+                target="_blank"
+                class="project-arrow"
+            >
+                ↗
+            </a>
 
-                <h3>
-                    More<br>
-                    experiments.
-                </h3>
+        </div>
 
-                <p>
-                    New implementations, research reproductions and
-                    machine-learning experiments will appear here.
-                </p>
+    </div>
 
-                <div class="project-footer">
-
-                    <div class="project-tags">
-
-                        <span>AI</span>
-                        <span>Research</span>
-                        <span>Python</span>
-
-                    </div>
-
-                    <div class="project-arrow">
-                        +
-                    </div>
-
-                </div>
-
-            </div>
-
-        </article>
+</article>
 
     </div>
 
