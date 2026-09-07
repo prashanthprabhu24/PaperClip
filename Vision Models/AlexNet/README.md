@@ -50,3 +50,5 @@ Notes & Observations :
 19. Recreated the Nearest Neighbor of Similar Images search ![img_3.png](viz/img_3.png)
     ![img_5.png](viz/img_5.png)![img_6.png](viz/img_6.png)![img_7.png](viz/img_7.png)![img_8.png](viz/img_8.png)
 20. Finally Model Result Examples : ![img_9.png](viz/img_9.png)
+
+Trained Model : https://drive.google.com/file/d/17Cw3TuYnMuiR-ml0DdaNvx4aHbJ88XUa/view?usp=sharing
