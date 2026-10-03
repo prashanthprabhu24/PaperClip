@@ -1,4 +1,7 @@
 import os
+
+from huggingface_hub import hf_hub_download
+
 os.environ["KERAS_BACKEND"] = "torch"
 import keras
 import torch
@@ -21,7 +24,10 @@ class LocalResponseNormalization(keras.layers.Layer):
         return torch.nn.functional.local_response_norm(x, size=5, alpha=1e-4, beta=0.75, k=2.0, )
 
 
-model = keras.models.load_model("../model/alexnet.keras")
+#model = keras.models.load_model("../model/alexnet.keras")
+model_path = hf_hub_download(repo_id="PrashanthDev24/alexnet", filename="alexnet.keras")
+model = keras.models.load_model(model_path)
+
 class_map = pd.read_csv("../../../Datasets/ILSVRC2010_images/IDX_WNID_CLASS.csv")
 
 idx_to_wnid = dict(zip(class_map["idx"], class_map["wnid"]))
