@@ -68,13 +68,24 @@ print("Device:", device)
 MAX_REQUESTS = 10
 RATE_WINDOW = 60 * 60  # 1 hour
 
-MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB
-
 MAX_IMAGE_WIDTH = 4096
 MAX_IMAGE_HEIGHT = 4096
 
+
+MAX_FILE_SIZE = 20 * 1024 * 1024  # 20 MB
+MAX_IMAGE_PIXELS = 50_000_000  # 100 MP
+max_image_pixels = 50
+
 REQUEST_LOG = defaultdict(deque)
 
+ALLOWED_IMAGE_TYPES = {
+    "image/jpeg",
+    "image/png",
+    "image/webp",
+    "image/gif",
+    "image/bmp",
+    "image/tiff",
+}
 
 def get_client_ip(request: Request) -> str:
     """
@@ -365,16 +376,13 @@ async def predict(
             },
         )
 
-
-    if file.content_type not in {
-        "image/jpeg",
-        "image/png",
-        "image/webp",
-    }:
-
+    if file.content_type not in ALLOWED_IMAGE_TYPES:
         raise HTTPException(
             status_code=400,
-            detail="Unsupported image type",
+            detail=(
+                "Unsupported image format. "
+                "Please upload a JPEG, PNG, WebP, GIF, BMP, or TIFF image."
+            ),
         )
 
     if (
@@ -386,7 +394,7 @@ async def predict(
             status_code=413,
             detail=(
                 "Image too large. "
-                "Maximum size is 5 MB."
+                "Maximum size is 20 MB."
             ),
         )
 
@@ -402,7 +410,7 @@ async def predict(
                 status_code=413,
                 detail=(
                     "Image too large. "
-                    "Maximum size is 5 MB."
+                    "Maximum size is 20 MB."
                 ),
             )
 
@@ -426,16 +434,12 @@ async def predict(
         )
 
         # Check source image dimensions.
-        if (
-            image.width > MAX_IMAGE_WIDTH
-            or image.height > MAX_IMAGE_HEIGHT
-        ):
-
+        if image.width * image.height > MAX_IMAGE_PIXELS:
             raise HTTPException(
                 status_code=413,
                 detail=(
-                    "Image dimensions too large. "
-                    "Maximum is 4096 x 4096 pixels."
+                    "Image resolution is too large. "
+                    f"Please use an image below {max_image_pixels} megapixels."
                 ),
             )
 
