@@ -1,0 +1,1001 @@
+idx,wnid,class_name
+0,n01484850,"great white shark, white shark, man-eater, man-eating shark, Carcharodon carcharias"
+1,n01491361,"tiger shark, Galeocerdo cuvieri"
+2,n01494475,"hammerhead, hammerhead shark"
+3,n01496331,"electric ray, crampfish, numbfish, torpedo"
+4,n01498041,stingray
+5,n01629819,"European fire salamander, Salamandra salamandra"
+6,n01630670,"common newt, Triturus vulgaris"
+7,n01632777,"axolotl, mud puppy, Ambystoma mexicanum"
+8,n01641206,"wood-frog, wood frog, Rana sylvatica"
+9,n01641391,"leopard frog, spring frog, Rana pipiens"
+10,n01641577,"bullfrog, Rana catesbeiana"
+11,n01644373,"tree frog, tree-frog"
+12,n01644900,"tailed frog, bell toad, ribbed toad, tailed toad, Ascaphus trui"
+13,n01664065,"loggerhead, loggerhead turtle, Caretta caretta"
+14,n01665541,"leatherback turtle, leatherback, leathery turtle, Dermochelys coriacea"
+15,n01667114,mud turtle
+16,n01667778,terrapin
+17,n01669191,"box turtle, box tortoise"
+18,n01675722,banded gecko
+19,n01677366,"common iguana, iguana, Iguana iguana"
+20,n01682714,"American chameleon, anole, Anolis carolinensis"
+21,n01685808,"whiptail, whiptail lizard"
+22,n01687978,agama
+23,n01688243,"frilled lizard, Chlamydosaurus kingi"
+24,n01689811,alligator lizard
+25,n01692333,"Gila monster, Heloderma suspectum"
+26,n01693334,"green lizard, Lacerta viridis"
+27,n01694178,"African chameleon, Chamaeleo chamaeleon"
+28,n01695060,"Komodo dragon, Komodo lizard, dragon lizard, giant lizard, Varanus komodoensis"
+29,n01728572,"thunder snake, worm snake, Carphophis amoenus"
+30,n01728920,"ringneck snake, ring-necked snake, ring snake"
+31,n01729322,"hognose snake, puff adder, sand viper"
+32,n01729977,"green snake, grass snake"
+33,n01734418,"king snake, kingsnake"
+34,n01735189,"garter snake, grass snake"
+35,n01737021,water snake
+36,n01739381,vine snake
+37,n01740131,"night snake, Hypsiglena torquata"
+38,n01742172,"boa constrictor, Constrictor constrictor"
+39,n01748264,"Indian cobra, Naja naja"
+40,n01749939,green mamba
+41,n01753488,"horned viper, cerastes, sand viper, horned asp, Cerastes cornutus"
+42,n01768244,trilobite
+43,n01770081,"harvestman, daddy longlegs, Phalangium opilio"
+44,n01770393,scorpion
+45,n01773157,"black and gold garden spider, Argiope aurantia"
+46,n01773549,"barn spider, Araneus cavaticus"
+47,n01773797,"garden spider, Aranea diademata"
+48,n01774384,"black widow, Latrodectus mactans"
+49,n01774750,tarantula
+50,n01775062,"wolf spider, hunting spider"
+51,n01776313,tick
+52,n01779629,mite
+53,n01784675,centipede
+54,n01786646,"millipede, millepede, milliped"
+55,n01787835,"horseshoe crab, king crab, Limulus polyphemus, Xiphosurus polyphemus"
+56,n01795545,black grouse
+57,n01796340,ptarmigan
+58,n01797886,"ruffed grouse, partridge, Bonasa umbellus"
+59,n01798484,"prairie chicken, prairie grouse, prairie fowl"
+60,n01803078,pheasant
+61,n01806567,quail
+62,n01807496,partridge
+63,n01909906,polyp
+64,n01910747,jellyfish
+65,n01914609,"sea anemone, anemone"
+66,n01915811,coral
+67,n01924916,"flatworm, platyhelminth"
+68,n01930112,"nematode, nematode worm, roundworm"
+69,n01935395,"earthworm, angleworm, fishworm, fishing worm, wiggler, nightwalker, nightcrawler, crawler, dew worm, red worm"
+70,n01943899,conch
+71,n01944390,snail
+72,n01945685,slug
+73,n01950731,"sea slug, nudibranch"
+74,n01953361,"cowrie, cowry"
+75,n01955084,"chiton, coat-of-mail shell, sea cradle, polyplacophore"
+76,n01956481,clam
+77,n01963571,mussel
+78,n01968897,"chambered nautilus, pearly nautilus, nautilus"
+79,n01978287,"Dungeness crab, Cancer magister"
+80,n01978455,"rock crab, Cancer irroratus"
+81,n01980166,fiddler crab
+82,n01981276,"king crab, Alaska crab, Alaskan king crab, Alaska king crab, Paralithodes camtschatica"
+83,n01983481,"American lobster, Northern lobster, Maine lobster, Homarus americanus"
+84,n01984695,"spiny lobster, langouste, rock lobster, crawfish, crayfish, sea crawfish"
+85,n01985128,"crayfish, crawfish, crawdad, crawdaddy"
+86,n01986214,hermit crab
+87,n01986806,shrimp
+88,n01990800,isopod
+89,n01998183,"barnacle, cirriped, cirripede"
+90,n02085620,Chihuahua
+91,n02086079,"Pekinese, Pekingese, Peke"
+92,n02087394,Rhodesian ridgeback
+93,n02090827,greyhound
+94,n02092002,"Scottish deerhound, deerhound"
+95,n02093256,"Staffordshire bullterrier, Staffordshire bull terrier"
+96,n02094433,Yorkshire terrier
+97,n02096294,Australian terrier
+98,n02099267,flat-coated retriever
+99,n02099601,golden retriever
+100,n02100583,"vizsla, Hungarian pointer"
+101,n02100735,English setter
+102,n02100877,"Irish setter, red setter"
+103,n02101006,Gordon setter
+104,n02101388,Brittany spaniel
+105,n02106166,Border collie
+106,n02106382,"Bouvier des Flandres, Bouviers des Flandres"
+107,n02106662,"German shepherd, German shepherd dog, German police dog, alsatian"
+108,n02107142,"Doberman, Doberman pinscher"
+109,n02108089,boxer
+110,n02108551,Tibetan mastiff
+111,n02109047,Great Dane
+112,n02109525,"Saint Bernard, St Bernard"
+113,n02109961,"Eskimo dog, husky"
+114,n02110341,"dalmatian, coach dog, carriage dog"
+115,n02110806,basenji
+116,n02111277,"Newfoundland, Newfoundland dog"
+117,n02112497,"griffon, Brussels griffon, Belgian griffon"
+118,n02112826,"corgi, Welsh corgi"
+119,n02113712,miniature poodle
+120,n02113799,standard poodle
+121,n02114367,"timber wolf, grey wolf, gray wolf, Canis lupus"
+122,n02114548,"white wolf, Arctic wolf, Canis lupus tundrarum"
+123,n02114712,"red wolf, maned wolf, Canis rufus, Canis niger"
+124,n02114855,"coyote, prairie wolf, brush wolf, Canis latrans"
+125,n02115641,"dingo, warrigal, warragal, Canis dingo"
+126,n02116738,"African hunting dog, hyena dog, Cape hunting dog, Lycaon pictus"
+127,n02117135,"hyena, hyaena"
+128,n02119022,"red fox, Vulpes vulpes"
+129,n02119789,"kit fox, Vulpes macrotis"
+130,n02120079,"Arctic fox, white fox, Alopex lagopus"
+131,n02120505,"grey fox, gray fox, Urocyon cinereoargenteus"
+132,n02123045,"tabby, tabby cat"
+133,n02123159,tiger cat
+134,n02123394,Persian cat
+135,n02123597,"Siamese cat, Siamese"
+136,n02124075,Egyptian cat
+137,n02125311,"cougar, puma, catamount, mountain lion, painter, panther, Felis concolor"
+138,n02127052,"lynx, catamount"
+139,n02128385,"leopard, Panthera pardus"
+140,n02128757,"snow leopard, ounce, Panthera uncia"
+141,n02128925,"jaguar, panther, Panthera onca, Felis onca"
+142,n02129165,"lion, king of beasts, Panthera leo"
+143,n02129604,"tiger, Panthera tigris"
+144,n02130308,"cheetah, chetah, Acinonyx jubatus"
+145,n02132136,"brown bear, bruin, Ursus arctos"
+146,n02133161,"American black bear, black bear, Ursus americanus, Euarctos americanus"
+147,n02134084,"ice bear, polar bear, Ursus Maritimus, Thalarctos maritimus"
+148,n02134418,"sloth bear, Melursus ursinus, Ursus ursinus"
+149,n02137549,mongoose
+150,n02138441,"meerkat, mierkat"
+151,n02165105,tiger beetle
+152,n02165456,"ladybug, ladybeetle, lady beetle, ladybird, ladybird beetle"
+153,n02167151,"ground beetle, carabid beetle"
+154,n02168699,"long-horned beetle, longicorn, longicorn beetle"
+155,n02169497,"leaf beetle, chrysomelid"
+156,n02177972,weevil
+157,n02190166,fly
+158,n02200198,mosquito
+159,n02206856,bee
+160,n02219486,"ant, emmet, pismire"
+161,n02226429,"grasshopper, hopper"
+162,n02229544,cricket
+163,n02231487,"walking stick, walkingstick, stick insect"
+164,n02233338,"cockroach, roach"
+165,n02236044,"mantis, mantid"
+166,n02256656,"cicada, cicala"
+167,n02259212,leafhopper
+168,n02262449,"mayfly, dayfly, shadfly"
+169,n02264363,"lacewing, lacewing fly"
+170,n02268443,"dragonfly, darning needle, devil's darning needle, sewing needle, snake feeder, snake doctor, mosquito hawk, skeeter hawk"
+171,n02268853,damselfly
+172,n02274822,"nymphalid, nymphalid butterfly, brush-footed butterfly, four-footed butterfly"
+173,n02277742,"ringlet, ringlet butterfly"
+174,n02279972,"monarch, monarch butterfly, milkweed butterfly, Danaus plexippus"
+175,n02280649,cabbage butterfly
+176,n02281406,"sulphur butterfly, sulfur butterfly"
+177,n02281787,"lycaenid, lycaenid butterfly"
+178,n02283201,moth
+179,n02317335,"starfish, sea star"
+180,n02319095,sea urchin
+181,n02321529,"sea cucumber, holothurian"
+182,n02325366,"wood rabbit, cottontail, cottontail rabbit"
+183,n02326432,hare
+184,n02328150,"Angora, Angora rabbit"
+185,n02441942,weasel
+186,n02442845,mink
+187,n02443114,"polecat, fitch, foulmart, foumart, Mustela putorius"
+188,n02443484,"black-footed ferret, ferret, Mustela nigripes"
+189,n02444819,otter
+190,n02445715,"skunk, polecat, wood pussy"
+191,n02447366,badger
+192,n02480495,"orangutan, orang, orangutang, Pongo pygmaeus"
+193,n02480855,"gorilla, Gorilla gorilla"
+194,n02481823,"chimpanzee, chimp, Pan troglodytes"
+195,n02483362,"gibbon, Hylobates lar"
+196,n02483708,"siamang, Hylobates syndactylus, Symphalangus syndactylus"
+197,n02484975,"guenon, guenon monkey"
+198,n02486261,"patas, hussar monkey, Erythrocebus patas"
+199,n02486410,baboon
+200,n02487347,macaque
+201,n02488291,langur
+202,n02488702,"colobus, colobus monkey"
+203,n02489166,"proboscis monkey, Nasalis larvatus"
+204,n02490219,marmoset
+205,n02492660,"howler monkey, howler"
+206,n02493509,"titi, titi monkey"
+207,n02493793,"spider monkey, Ateles geoffroyi"
+208,n02494079,"squirrel monkey, Saimiri sciureus"
+209,n02497673,"Madagascar cat, ring-tailed lemur, Lemur catta"
+210,n02500267,"indri, indris, Indri indri, Indri brevicaudatus"
+211,n02504013,"Indian elephant, Elephas maximus"
+212,n02504458,"African elephant, Loxodonta africana"
+213,n02508021,"raccoon, racoon"
+214,n02509815,"lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens"
+215,n02510455,"giant panda, panda, panda bear, coon bear, Ailuropoda melanoleuca"
+216,n02514041,"barracouta, snoek"
+217,n02536864,"coho, cohoe, coho salmon, blue jack, silver salmon, Oncorhynchus kisutch"
+218,n02537525,"rainbow trout, Salmo gairdneri"
+219,n02568087,"striped bass, striper, Roccus saxatilis, rockfish"
+220,n02640242,sturgeon
+221,n02641379,"gar, garfish, garpike, billfish, Lepisosteus osseus"
+222,n02666196,abacus
+223,n02667093,abaya
+224,n02669723,"academic gown, academic robe, judge's robe"
+225,n02672831,"accordion, piano accordion, squeeze box"
+226,n02676566,acoustic guitar
+227,n02680754,"adjustable wrench, adjustable spanner"
+228,n02687172,"aircraft carrier, carrier, flattop, attack aircraft carrier"
+229,n02690373,airliner
+230,n02692877,"airship, dirigible"
+231,n02701002,ambulance
+232,n02704792,"amphibian, amphibious vehicle"
+233,n02708093,analog clock
+234,n02727426,"apiary, bee house"
+235,n02730930,apron
+236,n02738535,armchair
+237,n02747177,"ashcan, trash can, garbage can, wastebin, ash bin, ash-bin, ashbin, dustbin, trash barrel, trash bin"
+238,n02764044,"ax, axe"
+239,n02769748,"backpack, back pack, knapsack, packsack, rucksack, haversack"
+240,n02773838,"bag, traveling bag, travelling bag, grip, suitcase"
+241,n02776631,"bakery, bakeshop, bakehouse"
+242,n02777292,"balance beam, beam"
+243,n02782093,balloon
+244,n02783161,"ballpoint, ballpoint pen, ballpen, Biro"
+245,n02786058,Band Aid
+246,n02787622,banjo
+247,n02788148,"bannister, banister, balustrade, balusters, handrail"
+248,n02790996,barbell
+249,n02791124,barber chair
+250,n02791270,barbershop
+251,n02793495,barn
+252,n02794156,barometer
+253,n02795169,"barrel, cask"
+254,n02797295,"barrow, garden cart, lawn cart, wheelbarrow"
+255,n02799071,baseball
+256,n02802426,basketball
+257,n02804414,bassinet
+258,n02804610,bassoon
+259,n02807133,"bathing cap, swimming cap"
+260,n02807616,bathrobe
+261,n02808304,bath towel
+262,n02808440,"bathtub, bathing tub, bath, tub"
+263,n02814533,"beach wagon, station wagon, wagon, estate car, beach waggon, station waggon, waggon"
+264,n02814860,"beacon, lighthouse, beacon light, pharos"
+265,n02815834,beaker
+266,n02817516,"bearskin, busby, shako"
+267,n02823428,beer bottle
+268,n02823750,beer glass
+269,n02824448,bell
+270,n02825657,"bell cote, bell cot"
+271,n02834397,bib
+272,n02835271,"bicycle-built-for-two, tandem bicycle, tandem"
+273,n02837789,"bikini, two-piece"
+274,n02840245,"binder, ring-binder"
+275,n02841315,"binoculars, field glasses, opera glasses"
+276,n02843684,birdhouse
+277,n02859443,boathouse
+278,n02860847,"bobsled, bobsleigh, bob"
+279,n02865351,"bolo tie, bolo, bola tie, bola"
+280,n02869837,"bonnet, poke bonnet"
+281,n02870880,bookcase
+282,n02871525,"bookshop, bookstore, bookstall"
+283,n02872752,boot
+284,n02877765,bottlecap
+285,n02879718,bow
+286,n02882647,"bowling pin, pin"
+287,n02883205,"bow tie, bow-tie, bowtie"
+288,n02887489,"brace, suspender, gallus"
+289,n02892201,"brass, memorial tablet, plaque"
+290,n02892767,"brassiere, bra, bandeau"
+291,n02894605,"breakwater, groin, groyne, mole, bulwark, seawall, jetty"
+292,n02895154,"breastplate, aegis, egis"
+293,n02897820,brick
+294,n02898711,"bridge, span"
+295,n02906734,broom
+296,n02909870,"bucket, pail"
+297,n02910353,buckle
+298,n02916936,bulletproof vest
+299,n02917067,"bullet train, bullet"
+300,n02918964,"bumper car, Dodgem"
+301,n02927161,"butcher shop, meat market"
+302,n02928608,button
+303,n02929289,"buttress, buttressing"
+304,n02930766,"cab, hack, taxi, taxicab"
+305,n02939185,"caldron, cauldron"
+306,n02942349,camcorder
+307,n02948072,"candle, taper, wax light"
+308,n02950632,cannon
+309,n02950826,cannon
+310,n02951358,canoe
+311,n02951585,"can opener, tin opener"
+312,n02952374,canteen
+313,n02956795,cap opener
+314,n02963159,cardigan
+315,n02965783,car mirror
+316,n02966193,"carousel, carrousel, merry-go-round, roundabout, whirligig"
+317,n02966687,"carpenter's kit, tool kit"
+318,n02971356,carton
+319,n02977058,"cash machine, cash dispenser, automated teller machine, automatic teller machine, automated teller, automatic teller, ATM"
+320,n02979186,cassette player
+321,n02980441,castle
+322,n02981792,catamaran
+323,n02988304,CD player
+324,n02992211,"cello, violoncello"
+325,n02992529,"cellular telephone, cellular phone, cellphone, cell, mobile phone"
+326,n02997607,ceramic ware
+327,n03000134,chainlink fence
+328,n03000247,"chain mail, ring mail, mail, chain armor, chain armour, ring armor, ring armour"
+329,n03000684,"chain saw, chainsaw"
+330,n03014440,"chessman, chess piece"
+331,n03014705,chest
+332,n03017168,"chime, bell, gong"
+333,n03018349,"china cabinet, china closet"
+334,n03018712,Chinese lantern
+335,n03020692,chisel
+336,n03026506,Christmas stocking
+337,n03028079,"church, church building"
+338,n03032252,"cinema, movie theater, movie theatre, movie house, picture palace"
+339,n03034663,"circular saw, buzz saw"
+340,n03041632,"cleaver, meat cleaver, chopper"
+341,n03042490,cliff dwelling
+342,n03047690,"clog, geta, patten, sabot"
+343,n03062245,cocktail shaker
+344,n03063689,coffeepot
+345,n03065424,"coil, spiral, volute, whorl, helix"
+346,n03068998,collar
+347,n03071160,colonnade
+348,n03075097,comb
+349,n03075370,combination lock
+350,n03085013,"computer keyboard, keypad"
+351,n03089624,"confectionery, confectionary, candy store"
+352,n03095699,"container ship, containership, container vessel"
+353,n03100240,convertible
+354,n03109150,"corkscrew, bottle screw"
+355,n03110669,"cornet, horn, trumpet, trump"
+356,n03122295,"covered wagon, Conestoga wagon, Conestoga, prairie wagon, prairie schooner"
+357,n03124170,"cowboy hat, ten-gallon hat"
+358,n03126707,crane
+359,n03127747,crash helmet
+360,n03127925,crate
+361,n03131574,"crib, cot"
+362,n03134739,croquet ball
+363,n03141823,crutch
+364,n03146219,cuirass
+365,n03150511,curling iron
+366,n03160309,"dam, dike, dyke"
+367,n03179701,desk
+368,n03180011,desktop computer
+369,n03187595,"dial telephone, dial phone"
+370,n03188531,"diaper, nappy, napkin"
+371,n03196217,digital clock
+372,n03201208,"dining table, board"
+373,n03207743,"dishrag, dishcloth"
+374,n03207941,"dishwasher, dish washer, dishwashing machine"
+375,n03216828,"dock, dockage, docking facility"
+376,n03218198,"dogsled, dog sled, dog sleigh"
+377,n03220513,dome
+378,n03223299,"doormat, welcome mat"
+379,n03239726,drill
+380,n03240683,"drilling platform, offshore rig"
+381,n03249569,"drum, membranophone, tympan"
+382,n03250847,drumstick
+383,n03255030,dumbbell
+384,n03259280,Dutch oven
+385,n03261776,"earphone, earpiece, headphone, phone"
+386,n03266371,"eggbeater, eggwhisk"
+387,n03271574,"electric fan, blower"
+388,n03272010,electric guitar
+389,n03272562,electric locomotive
+390,n03273740,electric range
+391,n03290653,entertainment center
+392,n03291819,envelope
+393,n03297495,espresso maker
+394,n03301568,euphonium
+395,n03309356,"eyepatch, patch"
+396,n03314780,face powder
+397,n03320519,"fancy dress, masquerade, masquerade costume"
+398,n03325584,"feather boa, boa"
+399,n03329302,Ferris wheel
+400,n03337140,"file, file cabinet, filing cabinet"
+401,n03344393,fireboat
+402,n03345487,"fire engine, fire truck"
+403,n03347037,"fire screen, fireguard"
+404,n03351979,"fishing rod, fishing pole"
+405,n03355925,"flagpole, flagstaff"
+406,n03358172,"flash, photoflash, flash lamp, flashgun, flashbulb, flash bulb"
+407,n03359436,flash memory
+408,n03360622,flat bench
+409,n03372029,"flute, transverse flute"
+410,n03376595,folding chair
+411,n03379051,football helmet
+412,n03384352,forklift
+413,n03388043,fountain
+414,n03388183,fountain pen
+415,n03388549,four-poster
+416,n03393912,freight car
+417,n03394916,"French horn, horn"
+418,n03400231,"frying pan, frypan, skillet"
+419,n03404251,fur coat
+420,n03416489,garage
+421,n03417042,"garbage truck, dustcart"
+422,n03420801,"garrison cap, overseas cap"
+423,n03424325,"gasmask, respirator, gas helmet"
+424,n03425413,"gas pump, gasoline pump, petrol pump, island dispenser"
+425,n03443371,goblet
+426,n03444034,go-kart
+427,n03445777,golf ball
+428,n03445924,"golfcart, golf cart"
+429,n03447447,gondola
+430,n03447721,"gong, tam-tam"
+431,n03450230,gown
+432,n03452741,"grand piano, grand"
+433,n03457902,"greenhouse, nursery, glasshouse"
+434,n03459775,"grille, radiator grille"
+435,n03461385,"grocery store, grocery, food market, market"
+436,n03467068,guillotine
+437,n03476684,hair slide
+438,n03476991,hair spray
+439,n03478589,half track
+440,n03481172,hammer
+441,n03482405,hamper
+442,n03483316,"hand blower, blow dryer, blow drier, hair dryer, hair drier"
+443,n03483823,"hand calculator, pocket calculator"
+444,n03484931,"hand glass, simple microscope, magnifying glass"
+445,n03485407,"hand-held computer, hand-held microcomputer"
+446,n03485794,"handkerchief, hankie, hanky, hankey"
+447,n03492542,"hard disc, hard disk, fixed disk"
+448,n03492922,"hard hat, tin hat, safety hat"
+449,n03494278,"harmonica, mouth organ, harp, mouth harp"
+450,n03495258,harp
+451,n03496892,"harvester, reaper"
+452,n03505504,headscarf
+453,n03521675,"hipflask, pocket flask"
+454,n03527444,holster
+455,n03529860,"home theater, home theatre"
+456,n03530642,honeycomb
+457,n03534580,"hoopskirt, crinoline"
+458,n03535780,"horizontal bar, high bar"
+459,n03538406,"horse cart, horse-cart"
+460,n03543254,"hot plate, hotplate"
+461,n03544143,hourglass
+462,n03545756,"house of cards, cardhouse, card-house, cardcastle"
+463,n03557692,ice maker
+464,n03558404,ice skate
+465,n03571625,"ink bottle, inkpot"
+466,n03584254,iPod
+467,n03584829,"iron, smoothing iron"
+468,n03590841,jack-o'-lantern
+469,n03594734,"jean, blue jean, denim"
+470,n03594945,"jeep, landrover"
+471,n03595614,"jersey, T-shirt, tee shirt"
+472,n03598930,jigsaw puzzle
+473,n03599486,"jinrikisha, ricksha, rickshaw"
+474,n03602883,joystick
+475,n03604400,"jumper, pinafore, pinny"
+476,n03617480,kimono
+477,n03623198,knee pad
+478,n03627232,knot
+479,n03630383,"lab coat, laboratory coat"
+480,n03633091,ladle
+481,n03636649,lamp
+482,n03637318,"lampshade, lamp shade"
+483,n03642806,"laptop, laptop computer"
+484,n03649909,"lawn mower, mower"
+485,n03657121,"lens cap, lens cover"
+486,n03661043,library
+487,n03662601,lifeboat
+488,n03666591,"lighter, light, igniter, ignitor"
+489,n03670208,"limousine, limo"
+490,n03673027,"liner, ocean liner"
+491,n03676483,"lipstick, lip rouge"
+492,n03680355,Loafer
+493,n03690938,lotion
+494,n03691459,"loudspeaker, speaker, speaker unit, loudspeaker system, speaker system"
+495,n03697007,"lumbermill, sawmill"
+496,n03701391,machine gun
+497,n03709823,"mailbag, postbag"
+498,n03710193,"mailbox, letter box"
+499,n03710637,maillot
+500,n03710721,"maillot, tank suit"
+501,n03717622,manhole cover
+502,n03720891,maraca
+503,n03721384,"marimba, xylophone"
+504,n03724870,mask
+505,n03729826,matchstick
+506,n03733281,"maze, labyrinth"
+507,n03733805,measuring cup
+508,n03742115,"medicine chest, medicine cabinet"
+509,n03743016,"megalith, megalithic structure"
+510,n03757604,metronome
+511,n03759954,"microphone, mike"
+512,n03761084,"microwave, microwave oven"
+513,n03763968,military uniform
+514,n03770679,minivan
+515,n03773504,missile
+516,n03775071,mitten
+517,n03777568,Model T
+518,n03781787,monitor
+519,n03785016,moped
+520,n03786901,mortar
+521,n03787032,mortarboard
+522,n03788195,mosque
+523,n03788365,mosquito net
+524,n03791053,"motor scooter, scooter"
+525,n03792782,"mountain bike, all-terrain bike, off-roader"
+526,n03793489,"mouse, computer mouse"
+527,n03794056,mousetrap
+528,n03797390,mug
+529,n03804744,nail
+530,n03805725,"nail polish, nail enamel, nail varnish"
+531,n03816136,needle
+532,n03825788,nipple
+533,n03837869,obelisk
+534,n03838899,"oboe, hautboy, hautbois"
+535,n03841143,"odometer, hodometer, mileometer, milometer"
+536,n03844815,"oilskin, slicker"
+537,n03852688,optical telescope
+538,n03854815,"organ pipe, pipe, pipework"
+539,n03857828,"oscilloscope, scope, cathode-ray oscilloscope, CRO"
+540,n03868242,oxcart
+541,n03868863,oxygen mask
+542,n03874599,padlock
+543,n03876231,paintbrush
+544,n03877472,"pajama, pyjama, pj's, jammies"
+545,n03877674,"pajama, pyjama"
+546,n03884397,"panpipe, pandean pipe, syrinx"
+547,n03886762,"paper clip, paperclip, gem clip"
+548,n03887697,paper towel
+549,n03888257,"parachute, chute"
+550,n03888605,"parallel bars, bars"
+551,n03891251,park bench
+552,n03895866,"passenger car, coach, carriage"
+553,n03902125,"pay-phone, pay-station"
+554,n03908204,pencil
+555,n03908714,pencil sharpener
+556,n03909406,pendulum clock
+557,n03920867,"pew, church bench"
+558,n03924679,photocopier
+559,n03929855,pickelhaube
+560,n03930313,"picket fence, paling"
+561,n03930630,"pickup, pickup truck"
+562,n03940256,pin
+563,n03950228,"pitcher, ewer"
+564,n03954731,"plane, carpenter's plane, woodworking plane"
+565,n03956157,planetarium
+566,n03967562,"plow, plough"
+567,n03970156,"plunger, plumber's helper"
+568,n03973628,"pocketknife, pocket knife"
+569,n03974915,point-and-shoot camera
+570,n03976467,"Polaroid camera, Polaroid Land camera"
+571,n03977966,"police van, police wagon, paddy wagon, patrol wagon, wagon, black Maria"
+572,n03978966,"polo shirt, sport shirt"
+573,n03980874,poncho
+574,n03982232,pool ball
+575,n03982430,"pool table, billiard table, snooker table"
+576,n04003241,"Primus stove, Primus"
+577,n04004767,printer
+578,n04005630,"prison, prison house"
+579,n04009552,projector
+580,n04021028,"pullover, slipover"
+581,n04033901,"quill, quill pen"
+582,n04033995,"quilt, comforter, comfort, puff"
+583,n04037443,"racer, race car, racing car"
+584,n04041544,"radio, wireless"
+585,n04044716,"radio telescope, radio reflector"
+586,n04049303,rain barrel
+587,n04050066,rake
+588,n04065272,"recreational vehicle, RV, R.V."
+589,n04069434,reflex camera
+590,n04070727,"refrigerator, icebox"
+591,n04074963,"remote control, remote"
+592,n04081281,"restaurant, eating house, eating place, eatery"
+593,n04086273,"revolver, six-gun, six-shooter"
+594,n04090263,rifle
+595,n04102037,in-line skate
+596,n04102406,"roller coaster, big dipper, chute-the-chute"
+597,n04111531,rotisserie
+598,n04116512,"rubber eraser, rubber, pencil eraser"
+599,n04118021,"rug, carpet, carpeting"
+600,n04118538,rugby ball
+601,n04118776,"rule, ruler"
+602,n04120489,running shoe
+603,n04125021,safe
+604,n04127521,safety razor
+605,n04131690,"saltshaker, salt shaker"
+606,n04133789,sandal
+607,n04136333,sarong
+608,n04140064,saw
+609,n04141076,"sax, saxophone"
+610,n04141327,scabbard
+611,n04141975,"scale, weighing machine"
+612,n04143140,"scanner, digital scanner, image scanner"
+613,n04146614,school bus
+614,n04147183,schooner
+615,n04148054,"scissors, pair of scissors"
+616,n04153751,screw
+617,n04154565,screwdriver
+618,n04162706,"seat belt, seatbelt"
+619,n04179913,sewing machine
+620,n04185804,"shaver, electric shaver, electric razor"
+621,n04192698,"shield, buckler"
+622,n04194127,"shin guard, shinpad"
+623,n04200800,"shoe shop, shoe-shop, shoe store"
+624,n04201297,shoji
+625,n04204238,shopping basket
+626,n04204347,shopping cart
+627,n04205318,"short pants, shorts, trunks"
+628,n04208210,shovel
+629,n04209133,shower cap
+630,n04209239,shower curtain
+631,n04210120,shredder
+632,n04220250,silo
+633,n04229816,ski mask
+634,n04233124,skyscraper
+635,n04235860,sleeping bag
+636,n04239436,"sling, scarf bandage, triangular bandage"
+637,n04243546,"slot, one-armed bandit"
+638,n04251144,snorkel
+639,n04252077,snowmobile
+640,n04252225,"snowplow, snowplough"
+641,n04254680,soccer ball
+642,n04254777,sock
+643,n04258138,"solar dish, solar collector, solar furnace"
+644,n04259630,sombrero
+645,n04270147,spatula
+646,n04273569,speedboat
+647,n04275548,"spider web, spider's web"
+648,n04295881,"stadium, bowl, arena, sports stadium"
+649,n04310018,steam locomotive
+650,n04317175,stethoscope
+651,n04325704,stole
+652,n04326547,stone wall
+653,n04332074,straight razor
+654,n04346328,"stupa, tope"
+655,n04347754,"submarine, pigboat, sub, U-boat"
+656,n04349306,subway train
+657,n04350905,"suit, suit of clothes"
+658,n04355338,sundial
+659,n04367480,"swab, swob, mop"
+660,n04371430,"swimming trunks, bathing trunks"
+661,n04373704,swivel chair
+662,n04373894,"sword, blade, brand, steel"
+663,n04376876,syringe
+664,n04381587,"table-tennis table, ping-pong table, pingpong table"
+665,n04389033,"tank, army tank, armored combat vehicle, armoured combat vehicle"
+666,n04392985,tape player
+667,n04398044,teapot
+668,n04404412,"television, television system"
+669,n04409515,tennis ball
+670,n04411264,"tent, collapsible shelter"
+671,n04417672,"thatch, thatched roof"
+672,n04418357,"theater curtain, theatre curtain"
+673,n04421872,thermometer
+674,n04423845,thimble
+675,n04428191,"thresher, thrasher, threshing machine"
+676,n04435653,tile roof
+677,n04442312,toaster
+678,n04443257,"tobacco shop, tobacconist shop, tobacconist"
+679,n04453156,toothbrush
+680,n04458633,totem pole
+681,n04462240,toyshop
+682,n04464615,trackball
+683,n04465501,tractor
+684,n04467665,"trailer truck, tractor trailer, trucking rig, rig, articulated lorry, semi"
+685,n04482393,"tricycle, trike, velocipede"
+686,n04483307,trimaran
+687,n04486054,triumphal arch
+688,n04487081,"trolleybus, trolley coach, trackless trolley"
+689,n04487394,trombone
+690,n04489817,trowel
+691,n04491638,"trundle bed, trundle, truckle bed, truckle"
+692,n04496726,"tumble-dryer, tumble drier"
+693,n04498389,turban
+694,n04501370,turnstile
+695,n04507155,umbrella
+696,n04509417,"unicycle, monocycle"
+697,n04515003,"upright, upright piano"
+698,n04517823,"vacuum, vacuum cleaner"
+699,n04522168,vase
+700,n04523525,vault
+701,n04525305,vending machine
+702,n04525584,Venetian blind
+703,n04532106,vestment
+704,n04536866,"violin, fiddle"
+705,n04540053,volleyball
+706,n04542943,waffle iron
+707,n04548362,"wallet, billfold, notecase, pocketbook"
+708,n04550184,"wardrobe, closet, press"
+709,n04552348,"warplane, military plane"
+710,n04553703,"washbasin, handbasin, washbowl, lavabo, wash-hand basin"
+711,n04554684,"washer, automatic washer, washing machine"
+712,n04555897,"watch, ticker"
+713,n04562935,water tower
+714,n04576002,wheelchair
+715,n04579432,whistle
+716,n04584207,wig
+717,n04589890,window screen
+718,n04590129,window shade
+719,n04591157,Windsor tie
+720,n04596742,wok
+721,n04613696,yurt
+722,n06267145,"newspaper, paper"
+723,n06359193,"web site, website, internet site, site"
+724,n06595351,"magazine, mag"
+725,n06785654,"crossword puzzle, crossword"
+726,n07711080,"french fries, french-fried potatoes, fries, chips"
+727,n07711569,mashed potato
+728,n07713763,"mustard, mustard greens, leaf mustard, Indian mustard"
+729,n07714448,"bok choy, bok choi"
+730,n07714571,head cabbage
+731,n07714990,broccoli
+732,n07715103,cauliflower
+733,n07715221,brussels sprouts
+734,n07716358,"zucchini, courgette"
+735,n07716906,spaghetti squash
+736,n07717410,acorn squash
+737,n07717556,butternut squash
+738,n07718472,"cucumber, cuke"
+739,n07718747,"artichoke, globe artichoke"
+740,n07719213,asparagus
+741,n07720277,"chard, Swiss chard, spinach beet, leaf beet"
+742,n07720875,bell pepper
+743,n07721195,"pimento, pimiento"
+744,n07721678,"jalapeno, jalapeno pepper"
+745,n07722485,"green onion, spring onion, scallion"
+746,n07723039,leek
+747,n07723177,shallot
+748,n07723559,lettuce
+749,n07725531,"green pea, garden pea"
+750,n07726095,"chickpea, garbanzo"
+751,n07727048,kidney bean
+752,n07729485,"soy, soybean, soya, soya bean"
+753,n07730033,cardoon
+754,n07730406,celery
+755,n07732747,cress
+756,n07734292,cherry tomato
+757,n07734744,mushroom
+758,n07735404,parsnip
+759,n07735510,pumpkin
+760,n07735803,turnip
+761,n07736692,spinach
+762,n07737745,"peanut, earthnut, goober, goober pea, groundnut, monkey nut"
+763,n07739344,"crab apple, crabapple"
+764,n07742313,Granny Smith
+765,n07743544,blueberry
+766,n07743902,cranberry
+767,n07744246,currant
+768,n07744811,blackberry
+769,n07745466,raspberry
+770,n07745940,strawberry
+771,n07746186,persimmon
+772,n07747607,orange
+773,n07749446,kumquat
+774,n07749582,lemon
+775,n07749969,grapefruit
+776,n07751451,plum
+777,n07753113,fig
+778,n07753275,"pineapple, ananas"
+779,n07753592,banana
+780,n07754684,"jackfruit, jak, jack"
+781,n07757132,cherry
+782,n07758680,grape
+783,n07760859,custard apple
+784,n07762913,durian
+785,n07764155,mango
+786,n07765208,elderberry
+787,n07765361,guava
+788,n07766173,"litchi, litchi nut, litchee, lichi, leechee, lichee, lychee"
+789,n07767171,mulberry
+790,n07767549,"black olive, ripe olive"
+791,n07768694,pomegranate
+792,n07769584,quince
+793,n07770763,pumpkin seed
+794,n07771212,walnut
+795,n07772147,"cashew, cashew nut"
+796,n07772274,chestnut
+797,n07772788,"hazelnut, filbert, cobnut, cob"
+798,n07772935,"coconut, cocoanut"
+799,n07774719,pecan
+800,n07775050,"pistachio, pistachio nut"
+801,n07775197,sunflower seed
+802,n07929351,"coffee bean, coffee berry, coffee"
+803,n09193705,alp
+804,n09246464,"cliff, drop, drop-off"
+805,n09256479,coral reef
+806,n09270735,"dune, sand dune"
+807,n09288635,geyser
+808,n09332890,"lakeside, lakeshore"
+809,n09344324,lunar crater
+810,n09399592,"promontory, headland, head, foreland"
+811,n09421951,"sandbar, sand bar"
+812,n09428293,"seashore, coast, seacoast, sea-coast"
+813,n09468604,"valley, vale"
+814,n09472597,volcano
+815,n11608250,"pine, pine tree, true pine"
+816,n11636835,juniper berry
+817,n11664418,"ginkgo, gingko, maidenhair tree, Ginkgo biloba"
+818,n11695974,"ilang-ilang, ylang-ylang, Cananga odorata"
+819,n11703669,laurel
+820,n11709205,"star anise, Chinese anise, Illicium verum"
+821,n11709674,magnolia
+822,n11712282,"tulip tree, tulip poplar, yellow poplar, canary whitewood, Liriodendron tulipifera"
+823,n11721337,"lesser celandine, pilewort, Ranunculus ficaria"
+824,n11725821,"wood anemone, Anemone nemorosa"
+825,n11727540,"blue columbine, Aquilegia caerulea, Aquilegia scopulorum calcarea"
+826,n11733054,delphinium
+827,n11736694,nigella
+828,n11748811,peanut
+829,n11756669,wattle
+830,n11757851,"huisache, cassie, mimosa bush, sweet wattle, sweet acacia, scented wattle, flame tree, Acacia farnesiana"
+831,n11759404,"silk tree, Albizia julibrissin, Albizzia julibrissin"
+832,n11759853,"rain tree, saman, monkeypod, monkey pod, zaman, zamang, Albizia saman"
+833,n11770256,"dita, dita bark, devil tree, Alstonia scholaris"
+834,n11793779,"calla lily, calla, arum lily, Zantedeschia aethiopica"
+835,n11805956,sandwort
+836,n11807979,"pink, garden pink"
+837,n11810358,"baby's breath, babies'-breath, Gypsophila paniculata"
+838,n11821184,"ice plant, icicle plant, Mesembryanthemum crystallinum"
+839,n11826198,"globe amaranth, bachelor's button, Gomphrena globosa"
+840,n11839568,four o'clock
+841,n11859737,"Virginia spring beauty, Claytonia virginica"
+842,n11879895,rapeseed
+843,n11887119,wallflower
+844,n11888800,"damask violet, Dame's violet, sweet rocket, Hesperis matronalis"
+845,n11889619,candytuft
+846,n11901294,"Iceland poppy, Papaver alpinum"
+847,n11901597,"prickly poppy, Papaver argemone"
+848,n11901977,"oriental poppy, Papaver orientale"
+849,n11903671,"celandine, greater celandine, swallowwort, swallow wort, Chelidonium majus"
+850,n11904109,corydalis
+851,n11906917,"blue poppy, Meconopsis betonicifolia"
+852,n11907100,"Welsh poppy, Meconopsis cambrica"
+853,n11908846,"celandine poppy, wood poppy, Stylophorum diphyllum"
+854,n11921395,"pearly everlasting, cottonweed, Anaphalis margaritacea"
+855,n11923397,"yellow chamomile, golden marguerite, dyers' chamomile, Anthemis tinctoria"
+856,n11939491,daisy
+857,n11943660,"common marigold, pot marigold, ruddles, Scotch marigold, Calendula officinalis"
+858,n11943992,"China aster, Callistephus chinensis"
+859,n11947802,"cornflower, bachelor's button, bluebottle, Centaurea cyanus"
+860,n11950345,chrysanthemum
+861,n11955896,"mistflower, mist-flower, ageratum, Conoclinium coelestinum, Eupatorium coelestinum"
+862,n11958080,"cosmos, cosmea"
+863,n11960245,"dahlia, Dahlia pinnata"
+864,n11962272,coneflower
+865,n11969607,"blue daisy, blue marguerite, Felicia amelloides"
+866,n11971248,gazania
+867,n11971783,African daisy
+868,n11978233,"sunflower, helianthus"
+869,n11980318,"strawflower, golden everlasting, yellow paper daisy, Helichrysum bracteatum"
+870,n12023407,"dusty miller, silver-lace, silver lace, Tanacetum ptarmiciflorum, Chrysanthemum ptarmiciflorum"
+871,n12023726,"tansy, golden buttons, scented fern, Tanacetum vulgare"
+872,n12043673,"male orchis, early purple orchid, Orchis mascula"
+873,n12043836,"butterfly orchid, butterfly orchis, Orchis papilionaceae"
+874,n12044467,aerides
+875,n12047345,brassavola
+876,n12047884,"spider orchid, Brassia lawrenceana"
+877,n12049282,"grass pink, Calopogon pulchellum, Calopogon tuberosum"
+878,n12049562,"calypso, fairy-slipper, Calypso bulbosa"
+879,n12050533,cattleya
+880,n12051103,"red helleborine, Cephalanthera rubra"
+881,n12052787,coelogyne
+882,n12055516,"cymbid, cymbidium"
+883,n12056217,"lady's slipper, lady-slipper, ladies' slipper, slipper orchid"
+884,n12058630,marsh orchid
+885,n12059314,dendrobium
+886,n12059625,disa
+887,n12062468,helleborine
+888,n12064389,"fragrant orchid, Gymnadenia conopsea"
+889,n12065316,"fringed orchis, fringed orchid"
+890,n12069679,"lizard orchid, Himantoglossum hircinum"
+891,n12070016,laelia
+892,n12072722,masdevallia
+893,n12073991,odontoglossum
+894,n12074408,"oncidium, dancing lady orchid, butterfly plant, butterfly orchid"
+895,n12074867,"bee orchid, Ophrys apifera"
+896,n12075010,"fly orchid, Ophrys insectifera, Ophrys muscifera"
+897,n12075151,spider orchid
+898,n12076223,phaius
+899,n12076577,"moth orchid, moth plant"
+900,n12083591,"ladies' tresses, lady's tresses"
+901,n12084890,stanhopea
+902,n12085267,stelis
+903,n12086012,vanda
+904,n12093329,"cyclamen, Cyclamen purpurascens"
+905,n12144580,corn
+906,n12154773,"pandanus, screw pine"
+907,n12158031,gourd
+908,n12172364,okra
+909,n12189987,"baobab, monkey-bread tree, Adansonia digitata"
+910,n12190410,"kapok, ceiba tree, silk-cotton tree, white silk-cotton tree, Bombay ceiba, God tree, Ceiba pentandra"
+911,n12199790,"red beech, brown oak, booyong, crow's foot, stave wood, silky elm, Heritiera trifoliolata, Terrietia trifoliolata"
+912,n12201580,"cacao, cacao tree, chocolate tree, Theobroma cacao"
+913,n12202936,"linden, linden tree, basswood, lime, lime tree"
+914,n12242409,"sorrel tree, sourwood, titi, Oxydendrum arboreum"
+915,n12261808,"American beech, white beech, red beech, Fagus grandifolia, Fagus americana"
+916,n12266796,New Zealand beech
+917,n12267677,acorn
+918,n12269241,live oak
+919,n12272883,"shingle oak, laurel oak, Quercus imbricaria"
+920,n12276872,"pin oak, swamp oak, Quercus palustris"
+921,n12278650,"cork oak, Quercus suber"
+922,n12281788,"yellow birch, Betula alleghaniensis, Betula leutea"
+923,n12281974,"American white birch, paper birch, paperbark birch, canoe birch, Betula cordifolia, Betula papyrifera"
+924,n12282737,"downy birch, white birch, Betula pubescens"
+925,n12284262,"alder, alder tree"
+926,n12290748,centaury
+927,n12293723,gentian
+928,n12301445,olive
+929,n12302071,fringe tree
+930,n12304703,"European ash, common European ash, Fraxinus excelsior"
+931,n12317296,"iron tree, iron-tree, ironwood, ironwood tree"
+932,n12345899,"mangrove, Rhizophora mangle"
+933,n12360108,begonia
+934,n12401684,"fig, common fig, common fig tree, Ficus carica"
+935,n12403994,"paper mulberry, Broussonetia papyrifera"
+936,n12407079,"witch elm, wych elm, Ulmus glabra"
+937,n12407222,"Dutch elm, Ulmus hollandica"
+938,n12478768,"cabbage tree, grass tree, Cordyline australis"
+939,n12492106,"golden shower tree, drumstick tree, purging cassia, pudding pipe tree, canafistola, canafistula, Cassia fistula"
+940,n12495895,"honey locust, Gleditsia triacanthos"
+941,n12496427,"Kentucky coffee tree, bonduc, chicot, Gymnocladus dioica"
+942,n12496949,"logwood, logwood tree, campeachy, bloodwood tree, Haematoxylum campechianum"
+943,n12513613,"Judas tree, love tree, Circis siliquastrum"
+944,n12513933,"redbud, Cercis canadensis"
+945,n12523475,"Brazilian rosewood, caviuna wood, jacaranda, Dalbergia nigra"
+946,n12527738,"coral tree, erythrina"
+947,n12544539,lentil
+948,n12560282,pea
+949,n12570394,"Japanese pagoda tree, Chinese scholartree, Chinese scholar tree, Sophora japonica, Sophora sinensis"
+950,n12570972,"kowhai, Sophora tetraptera"
+951,n12582231,"palm, palm tree"
+952,n12606438,commelina
+953,n12620546,"hip, rose hip, rosehip"
+954,n12658118,mountain ash
+955,n12663023,"Arabian coffee, Coffea arabica"
+956,n12683407,"scabious, scabiosa"
+957,n12713866,"cork tree, Phellodendron amurense"
+958,n12717072,ailanthus
+959,n12726670,"weeping willow, Babylonian weeping willow, Salix babylonica"
+960,n12727101,"pussy willow, Salix discolor"
+961,n12727518,"goat willow, florist's willow, pussy willow, Salix caprea"
+962,n12741792,"China tree, false dogwood, jaboncillo, chinaberry, Sapindus saponaria"
+963,n12753007,"silver maple, Acer saccharinum"
+964,n12754003,"Oregon maple, big-leaf maple, Acer macrophyllum"
+965,n12754981,"sycamore, great maple, scottish maple, Acer pseudoplatanus"
+966,n12755225,"box elder, ash-leaved maple, Acer negundo"
+967,n12755727,"Japanese maple, full moon maple, Acer japonicum"
+968,n12756457,holly
+969,n12765115,"pepper tree, molle, Peruvian mastic tree, Schinus molle"
+970,n12768682,"buckeye, horse chestnut, conker"
+971,n12774299,"balata, balata tree, beefwood, bully tree, Manilkara bidentata"
+972,n12830222,"achimenes, hot water plant"
+973,n12833149,"African violet, Saintpaulia ionantha"
+974,n12833985,streptocarpus
+975,n12836862,"scorpionweed, scorpion weed, phacelia"
+976,n12879527,"calceolaria, slipperwort"
+977,n12884260,"toadflax, butter-and-eggs, wild snapdragon, devil's flax, Linaria vulgaris"
+978,n12890265,"veronica, speedwell"
+979,n12916511,"teak, Tectona grandis"
+980,n12946849,"dogwood, dogwood tree, cornel"
+981,n12966945,"dead-man's-fingers, dead-men's-fingers, Xylaria polymorpha"
+982,n12985420,"truffle, earthnut, earth-ball"
+983,n12985857,coral fungus
+984,n12987056,lichen
+985,n12998815,agaric
+986,n13001930,"shiitake, shiitake mushroom, Chinese black mushroom, golden oak mushroom, Oriental black mushroom, Lentinus edodes"
+987,n13011595,gill fungus
+988,n13032115,morel
+989,n13037406,gyromitra
+990,n13040303,"stinkhorn, carrion fungus"
+991,n13043926,"puffball, true puffball"
+992,n13044778,earthstar
+993,n13049953,"polypore, pore fungus, pore mushroom"
+994,n13052670,"hen-of-the-woods, hen of the woods, Polyporus frondosus, Grifola frondosa"
+995,n13054560,bolete
+996,n13060190,jelly fungus
+997,n13111881,bonsai
+998,n13133613,"ear, spike, capitulum"
+999,n13136316,bean
