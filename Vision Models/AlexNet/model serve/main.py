@@ -22,8 +22,28 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 
 @keras.saving.register_keras_serializable()
 class LocalResponseNormalization(keras.layers.Layer):
-
     def call(self, x):
+
+        original_dtype = x.dtype
+
+        # PyTorch CPU does not support the FP16 kernel used internally
+        # by local_response_norm().
+        if (
+            x.device.type == "cpu"
+            and x.dtype in (torch.float16, torch.bfloat16)
+        ):
+            x = x.float()
+
+            x = torch.nn.functional.local_response_norm(
+                x,
+                size=5,
+                alpha=1e-4,
+                beta=0.75,
+                k=2.0,
+            )
+
+            return x.to(original_dtype)
+
         return torch.nn.functional.local_response_norm(
             x,
             size=5,
