@@ -17,6 +17,7 @@ from fastapi import (
     Request,
     UploadFile,
 )
+from fastapi.middleware.cors import CORSMiddleware
 
 
 @keras.saving.register_keras_serializable()
@@ -307,6 +308,23 @@ def preprocess(
 
 app = FastAPI(
     title="PaperClip AlexNet API"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://prashanthprabhu24.github.io",
+    ],
+    allow_origin_regex=r"^https?://localhost(?::\d+)?$",
+    allow_credentials=False,
+    allow_methods=[
+        "GET",
+        "POST",
+        "OPTIONS",
+    ],
+    allow_headers=[
+        "Content-Type",
+    ],
 )
 
 
