@@ -1,19 +1,28 @@
 import os
+
+# MUST be set before importing Keras
 os.environ["KERAS_BACKEND"] = "torch"
-import ast
+
 import csv
 import io
 import json
-import math
 import zipfile
+
+import numpy as np
 import keras
 import torch
-import torch.nn.functional as F
-import torchvision
+
+from PIL import Image
 from fastapi import FastAPI, File, UploadFile, HTTPException
+
+
+# ============================================================================
+# Custom layer
+# ============================================================================
 
 @keras.saving.register_keras_serializable()
 class LocalResponseNormalization(keras.layers.Layer):
+
     def call(self, x):
         return torch.nn.functional.local_response_norm(
             x,
@@ -42,117 +51,13 @@ print("Device:", device)
 
 
 # ============================================================================
-# Minimal NPY reader
-#
-# Reads int8 .npy data without NumPy.
-# Your .npz file is simply a ZIP containing .npy files.
-# ============================================================================
-
-def read_npy_int8(raw: bytes) -> torch.Tensor:
-
-    # NumPy magic header
-    if raw[:6] != b"\x93NUMPY":
-        raise ValueError("Invalid NPY file")
-
-    major = raw[6]
-    minor = raw[7]
-
-    # ------------------------------------------------------------------------
-    # Header size
-    # ------------------------------------------------------------------------
-
-    if major == 1:
-        header_len = int.from_bytes(
-            raw[8:10],
-            byteorder="little",
-        )
-        header_start = 10
-
-    elif major in (2, 3):
-        header_len = int.from_bytes(
-            raw[8:12],
-            byteorder="little",
-        )
-        header_start = 12
-
-    else:
-        raise ValueError(
-            f"Unsupported NPY version: {major}.{minor}"
-        )
-
-    header_end = header_start + header_len
-
-    # NumPy header is a Python literal dictionary
-    header = raw[
-        header_start:header_end
-    ].decode("latin1")
-
-    metadata = ast.literal_eval(header)
-
-    dtype = metadata["descr"]
-    fortran_order = metadata["fortran_order"]
-    shape = metadata["shape"]
-
-    # ------------------------------------------------------------------------
-    # We expect int8 weights
-    # ------------------------------------------------------------------------
-
-    if dtype not in {
-        "|i1",
-        "<i1",
-        ">i1",
-        "i1",
-    }:
-        raise ValueError(
-            f"Expected int8 NPY data, got {dtype}"
-        )
-
-    if fortran_order:
-        raise ValueError(
-            "Fortran-ordered NPY arrays are not supported."
-        )
-
-    if isinstance(shape, int):
-        shape = (shape,)
-
-    # ------------------------------------------------------------------------
-    # Data
-    # ------------------------------------------------------------------------
-
-    data_start = header_end
-
-    num_elements = math.prod(shape)
-
-    data = memoryview(raw)[
-        data_start:data_start + num_elements
-    ]
-
-    if len(data) < num_elements:
-        raise ValueError(
-            "NPY payload is smaller than expected."
-        )
-
-    tensor = torch.frombuffer(
-        data,
-        dtype=torch.int8,
-    ).clone()
-
-    return tensor.reshape(shape)
-
-
-# ============================================================================
-# Load INT8 model
-#
-# No NumPy
-# No temporary directory
-# No extraction to disk
+# Model loading
 # ============================================================================
 
 def load_int8_model(
     arch_path: str,
     zip_path: str,
 ):
-
     # ------------------------------------------------------------------------
     # Load architecture
     # ------------------------------------------------------------------------
@@ -172,33 +77,36 @@ def load_int8_model(
         )
 
     # ------------------------------------------------------------------------
-    # Open outer ZIP directly
+    # Read model ZIP
+    #
+    # alexnet_int8_weights.zip
+    # ├── alexnet_int8_weights.npz
+    # └── alexnet_int8_metadata.json
     # ------------------------------------------------------------------------
 
     with zipfile.ZipFile(
         zip_path,
         "r",
-    ) as outer_zip:
+    ) as z:
 
         metadata = json.loads(
-            outer_zip.read(
+            z.read(
                 "alexnet_int8_metadata.json"
             )
         )
 
-        # The NPZ itself is another ZIP archive.
-        npz_bytes = outer_zip.read(
+        npz_bytes = z.read(
             "alexnet_int8_weights.npz"
         )
 
     # ------------------------------------------------------------------------
-    # Read NPZ directly from memory
+    # NumPy directly handles the NPZ
     # ------------------------------------------------------------------------
 
-    with zipfile.ZipFile(
+    with np.load(
         io.BytesIO(npz_bytes),
-        "r",
-    ) as weights_zip:
+        allow_pickle=False,
+    ) as weights:
 
         for layer_index, layer in enumerate(
             model.layers
@@ -206,6 +114,7 @@ def load_int8_model(
 
             original_weights = layer.get_weights()
 
+            # Layers without weights
             if not original_weights:
                 continue
 
@@ -220,17 +129,8 @@ def load_int8_model(
                     f"_weight_{weight_index}"
                 )
 
-                npy_name = f"{key}.npy"
-
-                # Read raw NPY from NPZ
-                raw_npy = weights_zip.read(
-                    npy_name
-                )
-
-                # int8 tensor
-                int8_weight = read_npy_int8(
-                    raw_npy
-                )
+                # INT8 quantized weight
+                int8_weight = weights[key]
 
                 # Quantization scale
                 scale = float(
@@ -239,7 +139,9 @@ def load_int8_model(
 
                 # Dequantize
                 float_weight = (
-                    int8_weight.float()
+                    int8_weight.astype(
+                        np.float32
+                    )
                     * scale
                 )
 
@@ -247,6 +149,7 @@ def load_int8_model(
                     float_weight
                 )
 
+            # Put reconstructed weights into Keras layer
             layer.set_weights(
                 new_weights
             )
@@ -267,14 +170,10 @@ MODEL = load_int8_model(
 # ============================================================================
 # Class map
 #
-# Pandas -> Python csv
+# No Pandas needed.
 # ============================================================================
 
-CLASS_MAP_FILE = (
-    "../../../Datasets/"
-    "ILSVRC2010_images/"
-    "IDX_WNID_CLASS.csv"
-)
+CLASS_MAP_FILE = "../classes/IDX_WNID_CLASS.csv"
 
 idx_to_class = {}
 
@@ -304,9 +203,19 @@ def get_class_name(
 # ============================================================================
 # Image preprocessing
 #
-# torchvision.io replaces PIL
-# F.interpolate replaces torchvision.transforms.Resize
-# Tensor slicing replaces CenterCrop
+# PIL:
+#   decode
+#   RGB conversion
+#   resize
+#   center crop
+#
+# NumPy:
+#   HWC -> CHW
+#   uint8 -> float32
+#
+# PyTorch:
+#   NumPy -> Tensor
+#   CPU -> GPU
 # ============================================================================
 
 def preprocess(
@@ -314,105 +223,108 @@ def preprocess(
 ) -> torch.Tensor:
 
     # ------------------------------------------------------------------------
-    # Raw encoded image
-    # JPEG / PNG / WEBP
+    # Decode image
     # ------------------------------------------------------------------------
 
-    encoded = torch.frombuffer(
-        image_bytes,
-        dtype=torch.uint8,
-    )
+    image = Image.open(
+        io.BytesIO(image_bytes)
+    ).convert("RGB")
 
     # ------------------------------------------------------------------------
-    # Decode directly to Tensor
+    # Resize shortest side to 256
     #
-    # Result:
-    # [C, H, W]
-    # ------------------------------------------------------------------------
-
-    image = torchvision.io.decode_image(
-        encoded,
-        mode=torchvision.io.ImageReadMode.RGB,
-    )
-
-    # ------------------------------------------------------------------------
-    # Convert:
-    #
-    # uint8 [0, 255]
-    #      ->
-    # float32 [0, 1]
-    # ------------------------------------------------------------------------
-
-    image = image.float().div(255.0)
-
-    # ------------------------------------------------------------------------
-    # Add batch dimension
-    #
-    # [C,H,W] -> [1,C,H,W]
-    # ------------------------------------------------------------------------
-
-    image = image.unsqueeze(0)
-
-    # ------------------------------------------------------------------------
-    # Resize shortest edge to 256
     # Equivalent to:
-    #
-    # transforms.Resize(256)
+    # torchvision.transforms.Resize(256)
     # ------------------------------------------------------------------------
 
-    _, _, h, w = image.shape
+    width, height = image.size
 
-    if h < w:
+    if height < width:
 
-        new_h = 256
-        new_w = int(
-            math.floor(
-                w * 256 / h
-            )
+        new_height = 256
+        new_width = round(
+            width * 256 / height
         )
 
     else:
 
-        new_w = 256
-        new_h = int(
-            math.floor(
-                h * 256 / w
-            )
+        new_width = 256
+        new_height = round(
+            height * 256 / width
         )
 
-    image = F.interpolate(
-        image,
-        size=(new_h, new_w),
-        mode="bilinear",
-        align_corners=False,
-        antialias=True,
+    image = image.resize(
+        (new_width, new_height),
+        Image.Resampling.BILINEAR,
     )
 
     # ------------------------------------------------------------------------
     # Center crop 224x224
     #
     # Equivalent to:
+    # torchvision.transforms.CenterCrop(224)
+    # ------------------------------------------------------------------------
+
+    width, height = image.size
+
+    left = (width - 224) // 2
+    top = (height - 224) // 2
+
+    image = image.crop(
+        (
+            left,
+            top,
+            left + 224,
+            top + 224,
+        )
+    )
+
+    # ------------------------------------------------------------------------
+    # PIL -> NumPy
     #
-    # transforms.CenterCrop(224)
+    # Shape:
+    #   [H, W, C]
+    #
+    # dtype:
+    #   uint8
     # ------------------------------------------------------------------------
 
-    _, _, h, w = image.shape
-
-    top = (h - 224) // 2
-    left = (w - 224) // 2
-
-    image = image[
-        :,
-        :,
-        top:top + 224,
-        left:left + 224,
-    ]
+    image = np.asarray(
+        image,
+        dtype=np.float32,
+    )
 
     # ------------------------------------------------------------------------
-    # GPU
+    # HWC -> CHW
+    # [H,W,C] -> [C,H,W]
     # ------------------------------------------------------------------------
 
-    return image.to(device)
+    image = np.transpose(
+        image,
+        (2, 0, 1),
+    )
+
+    # ------------------------------------------------------------------------
+    # [0,255] -> [0,1]
+    # ------------------------------------------------------------------------
+
+    image /= 255.0
+
+    # ------------------------------------------------------------------------
+    # NumPy -> PyTorch
+    #
+    # [C,H,W] -> [1,C,H,W]
+    # ------------------------------------------------------------------------
+
+    x = torch.from_numpy(
+        image
+    ).unsqueeze(0)
+
+    # ------------------------------------------------------------------------
+    # Move to inference device
+    # ------------------------------------------------------------------------
+
+    return x.to(device)
 
 
 # ============================================================================
@@ -425,7 +337,7 @@ app = FastAPI(
 
 
 # ============================================================================
-# Health
+# Health endpoint
 # ============================================================================
 
 @app.get("/health")
@@ -438,7 +350,7 @@ def health():
 
 
 # ============================================================================
-# Prediction
+# Prediction endpoint
 # ============================================================================
 
 @app.post("/predict")
@@ -447,7 +359,7 @@ async def predict(
 ):
 
     # ------------------------------------------------------------------------
-    # Validate content type
+    # Validate image type
     # ------------------------------------------------------------------------
 
     if file.content_type not in {
@@ -492,6 +404,7 @@ async def predict(
 
             predictions = MODEL(x)
 
+            # Convert mixed-float output to float32
             predictions = predictions.float()
 
     except Exception as e:
@@ -504,9 +417,9 @@ async def predict(
         )
 
     # ------------------------------------------------------------------------
-    # Top 5
+    # Top-5 predictions
     #
-    # torch.topk replaces np.argsort
+    # torch.topk replaces NumPy argsort
     # ------------------------------------------------------------------------
 
     probs = predictions[0]
@@ -518,14 +431,11 @@ async def predict(
         sorted=True,
     )
 
-    top5_indices = top5.indices
-    top5_values = top5.values
-
     results = []
 
     for idx, confidence in zip(
-        top5_indices.tolist(),
-        top5_values.tolist(),
+        top5.indices.tolist(),
+        top5.values.tolist(),
     ):
 
         results.append(
@@ -540,7 +450,7 @@ async def predict(
             }
         )
 
-    # FastAPI automatically serializes dict -> JSON
+    # FastAPI serializes this dictionary to JSON
     return {
         "predictions": results
     }
