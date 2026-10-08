@@ -1,37 +1,35 @@
 import os
-
-# MUST be set before importing Keras
 os.environ["KERAS_BACKEND"] = "torch"
-
 import csv
 import io
 import json
+import time
 import zipfile
-
+from collections import defaultdict, deque
 import numpy as np
 import keras
 import torch
-
 from PIL import Image
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import (
+    FastAPI,
+    File,
+    HTTPException,
+    Request,
+    UploadFile,
+)
 
-
-# ============================================================================
-# Custom layer
-# ============================================================================
 
 @keras.saving.register_keras_serializable()
 class LocalResponseNormalization(keras.layers.Layer):
+
     def call(self, x):
 
         original_dtype = x.dtype
-
-        # PyTorch CPU does not support the FP16 kernel used internally
-        # by local_response_norm().
         if (
             x.device.type == "cpu"
             and x.dtype in (torch.float16, torch.bfloat16)
         ):
+
             x = x.float()
 
             x = torch.nn.functional.local_response_norm(
@@ -53,10 +51,6 @@ class LocalResponseNormalization(keras.layers.Layer):
         )
 
 
-# ============================================================================
-# Global configuration
-# ============================================================================
-
 device = torch.device(
     "cuda" if torch.cuda.is_available() else "cpu"
 )
@@ -70,17 +64,69 @@ keras.config.set_image_data_format("channels_first")
 print("Device:", device)
 
 
-# ============================================================================
-# Model loading
-# ============================================================================
+MAX_REQUESTS = 10
+RATE_WINDOW = 60 * 60  # 1 hour
+
+MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB
+
+MAX_IMAGE_WIDTH = 4096
+MAX_IMAGE_HEIGHT = 4096
+
+REQUEST_LOG = defaultdict(deque)
+
+
+def get_client_ip(request: Request) -> str:
+    """
+    Get the client IP.
+
+    Cloud Run places the original client address in X-Forwarded-For.
+    For local development, fall back to request.client.host.
+    """
+
+    forwarded_for = request.headers.get(
+        "x-forwarded-for"
+    )
+
+    if forwarded_for:
+        return forwarded_for.split(",")[0].strip()
+
+    if request.client:
+        return request.client.host
+
+    return "unknown"
+
+
+def check_rate_limit(ip: str) -> bool:
+    """
+    Allow at most MAX_REQUESTS requests from an IP
+    during RATE_WINDOW seconds.
+    """
+
+    now = time.monotonic()
+
+    timestamps = REQUEST_LOG[ip]
+
+    # Remove timestamps outside the current window.
+    while timestamps:
+
+        if now - timestamps[0] >= RATE_WINDOW:
+            timestamps.popleft()
+        else:
+            break
+
+    # Limit exceeded.
+    if len(timestamps) >= MAX_REQUESTS:
+        return False
+
+    timestamps.append(now)
+
+    return True
+
 
 def load_int8_model(
     arch_path: str,
     zip_path: str,
 ):
-    # ------------------------------------------------------------------------
-    # Load architecture
-    # ------------------------------------------------------------------------
 
     with open(
         arch_path,
@@ -95,14 +141,6 @@ def load_int8_model(
                     LocalResponseNormalization
             },
         )
-
-    # ------------------------------------------------------------------------
-    # Read model ZIP
-    #
-    # alexnet_int8_weights.zip
-    # ├── alexnet_int8_weights.npz
-    # └── alexnet_int8_metadata.json
-    # ------------------------------------------------------------------------
 
     with zipfile.ZipFile(
         zip_path,
@@ -119,10 +157,6 @@ def load_int8_model(
             "alexnet_int8_weights.npz"
         )
 
-    # ------------------------------------------------------------------------
-    # NumPy directly handles the NPZ
-    # ------------------------------------------------------------------------
-
     with np.load(
         io.BytesIO(npz_bytes),
         allow_pickle=False,
@@ -134,7 +168,7 @@ def load_int8_model(
 
             original_weights = layer.get_weights()
 
-            # Layers without weights
+            # Skip layers without trainable/non-trainable weights.
             if not original_weights:
                 continue
 
@@ -157,7 +191,7 @@ def load_int8_model(
                     metadata[key]["scale"]
                 )
 
-                # Dequantize
+                # Dequantize to FP32
                 float_weight = (
                     int8_weight.astype(
                         np.float32
@@ -169,31 +203,21 @@ def load_int8_model(
                     float_weight
                 )
 
-            # Put reconstructed weights into Keras layer
+            # Load reconstructed weights.
             layer.set_weights(
                 new_weights
             )
 
     return model
 
-
-# ============================================================================
-# Load model
-# ============================================================================
-
 MODEL = load_int8_model(
     "../model/alexnet_architecture.json",
     "../model/alexnet_int8_weights.zip",
 )
 
-
-# ============================================================================
-# Class map
-#
-# No Pandas needed.
-# ============================================================================
-
-CLASS_MAP_FILE = "../classes/IDX_WNID_CLASS.csv"
+CLASS_MAP_FILE = (
+    "../classes/IDX_WNID_CLASS.csv"
+)
 
 idx_to_class = {}
 
@@ -219,43 +243,13 @@ def get_class_name(
 
     return idx_to_class[target_id]
 
-
-# ============================================================================
-# Image preprocessing
-#
-# PIL:
-#   decode
-#   RGB conversion
-#   resize
-#   center crop
-#
-# NumPy:
-#   HWC -> CHW
-#   uint8 -> float32
-#
-# PyTorch:
-#   NumPy -> Tensor
-#   CPU -> GPU
-# ============================================================================
-
 def preprocess(
     image_bytes: bytes,
 ) -> torch.Tensor:
 
-    # ------------------------------------------------------------------------
-    # Decode image
-    # ------------------------------------------------------------------------
-
     image = Image.open(
         io.BytesIO(image_bytes)
     ).convert("RGB")
-
-    # ------------------------------------------------------------------------
-    # Resize shortest side to 256
-    #
-    # Equivalent to:
-    # torchvision.transforms.Resize(256)
-    # ------------------------------------------------------------------------
 
     width, height = image.size
 
@@ -278,13 +272,6 @@ def preprocess(
         Image.Resampling.BILINEAR,
     )
 
-    # ------------------------------------------------------------------------
-    # Center crop 224x224
-    #
-    # Equivalent to:
-    # torchvision.transforms.CenterCrop(224)
-    # ------------------------------------------------------------------------
-
     width, height = image.size
 
     left = (width - 224) // 2
@@ -299,66 +286,29 @@ def preprocess(
         )
     )
 
-    # ------------------------------------------------------------------------
-    # PIL -> NumPy
-    #
-    # Shape:
-    #   [H, W, C]
-    #
-    # dtype:
-    #   uint8
-    # ------------------------------------------------------------------------
-
     image = np.asarray(
         image,
         dtype=np.float32,
     )
-
-    # ------------------------------------------------------------------------
-    # HWC -> CHW
-    # [H,W,C] -> [C,H,W]
-    # ------------------------------------------------------------------------
 
     image = np.transpose(
         image,
         (2, 0, 1),
     )
 
-    # ------------------------------------------------------------------------
-    # [0,255] -> [0,1]
-    # ------------------------------------------------------------------------
-
     image /= 255.0
-
-    # ------------------------------------------------------------------------
-    # NumPy -> PyTorch
-    #
-    # [C,H,W] -> [1,C,H,W]
-    # ------------------------------------------------------------------------
 
     x = torch.from_numpy(
         image
     ).unsqueeze(0)
 
-    # ------------------------------------------------------------------------
-    # Move to inference device
-    # ------------------------------------------------------------------------
-
     return x.to(device)
 
-
-# ============================================================================
-# FastAPI
-# ============================================================================
 
 app = FastAPI(
     title="PaperClip AlexNet API"
 )
 
-
-# ============================================================================
-# Health endpoint
-# ============================================================================
 
 @app.get("/health")
 def health():
@@ -369,18 +319,34 @@ def health():
     }
 
 
-# ============================================================================
-# Prediction endpoint
-# ============================================================================
-
 @app.post("/predict")
 async def predict(
+    request: Request,
     file: UploadFile = File(...),
 ):
 
-    # ------------------------------------------------------------------------
-    # Validate image type
-    # ------------------------------------------------------------------------
+
+    client_ip = get_client_ip(
+        request
+    )
+
+    if not check_rate_limit(
+        client_ip
+    ):
+
+        raise HTTPException(
+            status_code=429,
+            detail=(
+                "Rate limit exceeded. "
+                "Maximum 10 predictions per hour."
+            ),
+            headers={
+                "Retry-After": str(
+                    RATE_WINDOW
+                )
+            },
+        )
+
 
     if file.content_type not in {
         "image/jpeg",
@@ -393,17 +359,75 @@ async def predict(
             detail="Unsupported image type",
         )
 
-    # ------------------------------------------------------------------------
-    # Read + preprocess
-    # ------------------------------------------------------------------------
+    if (
+        file.size is not None
+        and file.size > MAX_FILE_SIZE
+    ):
+
+        raise HTTPException(
+            status_code=413,
+            detail=(
+                "Image too large. "
+                "Maximum size is 5 MB."
+            ),
+        )
 
     try:
 
-        image_bytes = await file.read()
+        image_bytes = await file.read(
+            MAX_FILE_SIZE + 1
+        )
 
+        if len(image_bytes) > MAX_FILE_SIZE:
+
+            raise HTTPException(
+                status_code=413,
+                detail=(
+                    "Image too large. "
+                    "Maximum size is 5 MB."
+                ),
+            )
+
+    except HTTPException:
+        raise
+
+    except Exception as e:
+
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                f"Image upload failed: {e}"
+            ),
+        )
+
+    try:
+
+        # Open once for validation.
+        image = Image.open(
+            io.BytesIO(image_bytes)
+        )
+
+        # Check source image dimensions.
+        if (
+            image.width > MAX_IMAGE_WIDTH
+            or image.height > MAX_IMAGE_HEIGHT
+        ):
+
+            raise HTTPException(
+                status_code=413,
+                detail=(
+                    "Image dimensions too large. "
+                    "Maximum is 4096 x 4096 pixels."
+                ),
+            )
+
+        # Actual preprocessing.
         x = preprocess(
             image_bytes
         )
+
+    except HTTPException:
+        raise
 
     except Exception as e:
 
@@ -414,17 +438,13 @@ async def predict(
             ),
         )
 
-    # ------------------------------------------------------------------------
-    # Inference
-    # ------------------------------------------------------------------------
-
     try:
 
         with torch.inference_mode():
 
             predictions = MODEL(x)
 
-            # Convert mixed-float output to float32
+            # Convert mixed-float output to FP32
             predictions = predictions.float()
 
     except Exception as e:
@@ -435,12 +455,6 @@ async def predict(
                 f"Inference failed: {e}"
             ),
         )
-
-    # ------------------------------------------------------------------------
-    # Top-5 predictions
-    #
-    # torch.topk replaces NumPy argsort
-    # ------------------------------------------------------------------------
 
     probs = predictions[0]
 
@@ -470,7 +484,6 @@ async def predict(
             }
         )
 
-    # FastAPI serializes this dictionary to JSON
     return {
         "predictions": results
     }
