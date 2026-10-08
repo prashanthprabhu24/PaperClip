@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pillow
+numpy
+pandas
+keras
+tensorflow
+torch
+torchvision
