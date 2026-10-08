@@ -1,0 +1,148 @@
+{
+  "layer_2_weight_0": {
+    "scale": 0.0030877375975251198,
+    "zero_point": 0,
+    "shape": [
+      11,
+      11,
+      3,
+      96
+    ],
+    "dtype": "float32"
+  },
+  "layer_2_weight_1": {
+    "scale": 0.033014170825481415,
+    "zero_point": 0,
+    "shape": [
+      96
+    ],
+    "dtype": "float32"
+  },
+  "layer_5_weight_0": {
+    "scale": 0.004890632815659046,
+    "zero_point": 0,
+    "shape": [
+      5,
+      5,
+      96,
+      256
+    ],
+    "dtype": "float32"
+  },
+  "layer_5_weight_1": {
+    "scale": 0.014755062758922577,
+    "zero_point": 0,
+    "shape": [
+      256
+    ],
+    "dtype": "float32"
+  },
+  "layer_8_weight_0": {
+    "scale": 0.0028240589890629053,
+    "zero_point": 0,
+    "shape": [
+      3,
+      3,
+      256,
+      384
+    ],
+    "dtype": "float32"
+  },
+  "layer_8_weight_1": {
+    "scale": 0.015967756509780884,
+    "zero_point": 0,
+    "shape": [
+      384
+    ],
+    "dtype": "float32"
+  },
+  "layer_9_weight_0": {
+    "scale": 0.0016916750464588404,
+    "zero_point": 0,
+    "shape": [
+      3,
+      3,
+      384,
+      384
+    ],
+    "dtype": "float32"
+  },
+  "layer_9_weight_1": {
+    "scale": 0.01591446064412594,
+    "zero_point": 0,
+    "shape": [
+      384
+    ],
+    "dtype": "float32"
+  },
+  "layer_10_weight_0": {
+    "scale": 0.0017587312031537294,
+    "zero_point": 0,
+    "shape": [
+      3,
+      3,
+      384,
+      256
+    ],
+    "dtype": "float32"
+  },
+  "layer_10_weight_1": {
+    "scale": 0.007253952790051699,
+    "zero_point": 0,
+    "shape": [
+      256
+    ],
+    "dtype": "float32"
+  },
+  "layer_13_weight_0": {
+    "scale": 0.00031378280255012214,
+    "zero_point": 0,
+    "shape": [
+      9216,
+      4096
+    ],
+    "dtype": "float32"
+  },
+  "layer_13_weight_1": {
+    "scale": 0.0010156837524846196,
+    "zero_point": 0,
+    "shape": [
+      4096
+    ],
+    "dtype": "float32"
+  },
+  "layer_15_weight_0": {
+    "scale": 0.00036911244387738407,
+    "zero_point": 0,
+    "shape": [
+      4096,
+      4096
+    ],
+    "dtype": "float32"
+  },
+  "layer_15_weight_1": {
+    "scale": 0.002228582976385951,
+    "zero_point": 0,
+    "shape": [
+      4096
+    ],
+    "dtype": "float32"
+  },
+  "layer_17_weight_0": {
+    "scale": 0.0004183310957159847,
+    "zero_point": 0,
+    "shape": [
+      4096,
+      1000
+    ],
+    "dtype": "float32"
+  },
+  "layer_17_weight_1": {
+    "scale": 0.0035934504121541977,
+    "zero_point": 0,
+    "shape": [
+      1000
+    ],
+    "dtype": "float32"
+  }
+}
